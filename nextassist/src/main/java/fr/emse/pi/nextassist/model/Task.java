@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.sql.Date;
 import java.sql.Time;
+import java.sql.Timestamp;
 
 @Entity
 public class Task {
@@ -12,12 +13,12 @@ public class Task {
     public Long id;
 
     public String name;
-    public Date start_date;
+    public Timestamp start_date;
     public Time duration;
-    public Date deadline;
+    public Timestamp deadline;
     public Integer priority;
 
-    public Task(String name,Date deadline){
+    public Task(String name,Timestamp deadline){
         this.deadline= deadline;
         this.name= name;
     }

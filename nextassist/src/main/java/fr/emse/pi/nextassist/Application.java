@@ -9,13 +9,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Arrays;
 
 @SpringBootApplication
 @EnableJpaRepositories
 @EnableTransactionManagement
 public class Application {
-	public static final Date DEBUT = new Date(2018, 1, 1);
+	public static final Timestamp DEBUT = new Timestamp(0000,01,01,01,01,01,0);
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
