@@ -1,9 +1,10 @@
 package fr.emse.pi.nextassist.model;
 
+import fr.emse.pi.nextassist.EventRepository;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -21,6 +22,10 @@ public class Event {
         this.name = name;
         this.start_date= start_date;
     }
-
-
+    public void addEvent (EventRepository eventRepository, String name, Timestamp start_date) {
+        Event event = new Event(name, start_date);
+        eventRepository.save(event);
+    }
 }
+
+

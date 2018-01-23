@@ -12,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -46,7 +45,7 @@ public class EventControllerIntegrationTest {
 	}
 
 	@Test
-	public void shouldFindStudent() throws Exception {
+	public void shouldFindEvent() throws Exception {
 		Event event = eventRepository.findAll().stream().findAny().orElseThrow(() -> new IllegalStateException());
 		mockMvc.perform(get("/event/"+event.getId()))
 				.andExpect(status().is2xxSuccessful())
