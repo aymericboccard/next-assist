@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 
 @Entity
 public class Event {
-    @Id@GeneratedValue
+    @Id @GeneratedValue
     public Long id;
 
     public String name;

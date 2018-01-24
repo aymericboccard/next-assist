@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 
 @Entity
 public class Task {
-    @Id@GeneratedValue
+    @Id @GeneratedValue
     public Long id;
 
     public String name;

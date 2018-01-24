@@ -14,6 +14,10 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+
+import static org.junit.Assert.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -21,38 +25,52 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @WebAppConfiguration
 @AutoConfigureMockMvc
-public class EventControllerIntegrationTest {
+public class addTaskTest {
 
 	@Autowired
 	private MockMvc mockMvc;
 
 	@Autowired
-	private EventRepository eventRepository;
+	private EventRepository taskRepository;
+
+	@Autowired
+	private TaskDAO taskDAO;
 
 	@Test
 	public void contextLoads() {
 	}
 
 	@Test
-	public void dbShouldContainEvent() {
-		Assertions.assertThat(eventRepository.findAll()).isNotEmpty();
+	public void shouldNotBeValid() throws Exception {
+		String name = "A Task";
+		Time duration = new Time(1,0,0);
+		Timestamp deadline = new Timestamp(1,0,0,0,1,0,0);
+		Timestamp start_date = new Timestamp(0,0,0,0,1,0,0);
+		int priority = 4;
+
+		taskDAO.addTask(name, start_date, deadline, duration, priority);
+
+		assertThat(taskDAO.listEvents().hasSize(0));
+
 	}
 
 	@Test
-	public void shouldNotFindMissingEvent() throws Exception {
-		mockMvc.perform(get("/event/1000"))
-				.andExpect(status().isNotFound());
+	public void shouldNotBeValid() throws Exception {
+		String name = "A Task";
+		Time duration = new Time(1,0,0);
+		Timestamp deadline = new Timestamp(1,0,0,0,1,0,0);
+		Timestamp start_date = new Timestamp(0,0,0,0,1,0,0);
+		int priority = 4;
+
+		taskDAO.addTask(name, start_date, deadline, duration, priority);
+
+		assertThat(taskDAO.listEvents().hasSize(0));
+
 	}
 
-	@Test
-	public void shouldFindEvent() throws Exception {
-		Event event = eventRepository.findAll().stream().findAny().orElseThrow(() -> new IllegalStateException());
-		mockMvc.perform(get("/event/"+event.getId()))
-				.andExpect(status().is2xxSuccessful())
-				.andExpect(MockMvcResultMatchers.jsonPath(
-						"$.name",
-						Matchers.not(Matchers.isEmptyOrNullString())));
-	}
+
+
+
 
 
 }
