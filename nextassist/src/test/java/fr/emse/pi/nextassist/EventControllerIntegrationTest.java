@@ -44,7 +44,7 @@ public class EventControllerIntegrationTest {
 				.andExpect(status().isNotFound());
 	}
 
-	@Test
+	/*@Test
 	public void shouldFindEvent() throws Exception {
 		Event event = eventRepository.findAll().stream().findAny().orElseThrow(() -> new IllegalStateException());
 		mockMvc.perform(get("/event/"+event.getId()))
@@ -52,7 +52,7 @@ public class EventControllerIntegrationTest {
 				.andExpect(MockMvcResultMatchers.jsonPath(
 						"$.name",
 						Matchers.not(Matchers.isEmptyOrNullString())));
-	}
+	}*/
 
 
 }

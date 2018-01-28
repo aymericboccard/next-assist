@@ -1,16 +1,5 @@
 ---
 
-debug: true
-server:
-  port: 9080
+spring.profiles.active: dev,test
 
-management.security.enabled: false
-
-spring.h2.console.enabled: true
-
-spring.devtools.livereload.port: 35730
-spring:
-  datasource:
-    url: 'jdbc:h2:mem:nextassist;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL'
-  jpa:
-    generate-ddl: true
+endpoints.enabled: true
