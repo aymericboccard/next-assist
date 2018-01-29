@@ -18,14 +18,15 @@ public class Event {
     public boolean movable;
     public String location;
 
-    public Event(String name,Timestamp start_date){
+    public Event(String name,Timestamp start_date, boolean movable){
         this.name = name;
         this.start_date= start_date;
+        this.movable = movable;
     }
-    public void addEvent (EventRepository eventRepository, String name, Timestamp start_date) {
-        Event event = new Event(name, start_date);
-        eventRepository.save(event);
-    }
+
+
+
+
 }
 
 

@@ -30,7 +30,7 @@ public class Application {
 		return (String... args) -> {
 			String[] names = {"Creation", "Test1", "Test2"};
 			Arrays.stream(names)
-					.map(name -> new Event(name, DEBUT))
+					.map(name -> new Event(name, DEBUT, true))
 					.forEach(eventRepository::save);
 			Arrays.stream(names)
 					.map(name -> new Task(name,FIN))
