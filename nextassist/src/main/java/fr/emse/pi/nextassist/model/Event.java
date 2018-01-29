@@ -26,6 +26,7 @@ public class Event {
     public Event(String name,LocalDateTime start_date){
         this.name = name;
         this.start_date= start_date;
+        this.location = "Saint_Etienne";
     }
     public void addEvent (EventRepository eventRepository, String name, LocalDateTime start_date) {
         Event event = new Event(name, start_date);

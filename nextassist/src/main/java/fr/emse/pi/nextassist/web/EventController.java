@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Collections;
@@ -41,4 +43,18 @@ public class EventController {
         LOG.info("Model for allEvents : {}", model);
         return "allEvents";
     }
+
+    @PostMapping("/add")
+    public String addEvents(@ModelAttribute Event event){
+
+        return"newTask";
+    }
+
+    @GetMapping("/add")
+    public String eventForm(Model model){
+
+        return"addEvent";
+    }
+
+
 }

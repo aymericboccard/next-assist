@@ -20,7 +20,7 @@
 
 <div class="container">
 
-    <h1 th:text="'Liste des events avec leur deadline :'"></h1>
+    <h1 th:text="'Liste des events avec leur date et lieu :'"></h1>
     <h2 class="eventList" th:each="event : ${events}" th:unless="${#lists.isEmpty(events)}">
         <div class="eventName" th:text="${event.name}" ></div>
         <div class="eventDate" th:text="${event.start_date}" ></div>
