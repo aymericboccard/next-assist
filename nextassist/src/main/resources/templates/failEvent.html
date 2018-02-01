@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Thymeleaf Student Notes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Next-Assist</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1> Il est nécéssaire au minimum de spécifier un nom et une date de début pour créer un évenement.</h1>
+    <h1>La date de fin d'évenement doit être superieur à la date de début.</h1>
+    <a class="btn btn-danger" href="add">Retour</a>
+
+
+</div>
+<!-- /.container -->
+
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

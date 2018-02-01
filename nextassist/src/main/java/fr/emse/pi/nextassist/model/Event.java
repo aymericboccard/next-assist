@@ -3,6 +3,7 @@ package fr.emse.pi.nextassist.model;
 import fr.emse.pi.nextassist.EventRepository;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,19 +19,20 @@ public class Event {
     public Long id;
 
     public String name;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     public LocalDateTime start_date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     public LocalDateTime end_date;
     public boolean movable;
     public String location;
 
-    public Event(String name,LocalDateTime start_date){
+    public Event(String name,LocalDateTime start_date,String location){
         this.name = name;
         this.start_date= start_date;
+        this.location = location;
     }
-    public void addEvent (EventRepository eventRepository, String name, LocalDateTime start_date) {
-        Event event = new Event(name, start_date);
-        eventRepository.save(event);
-    }
+
 }
 
 
