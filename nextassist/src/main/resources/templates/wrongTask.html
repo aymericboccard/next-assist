@@ -20,11 +20,8 @@
 
 	<div class="container">
 
-		<h1 th:text="'Liste des tâches avec leur deadline :'"></h1>
-		<h2 th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}">
-			<p  th:text="${task.name}" ></p>
-			<p  th:text="${task.deadline}" ></p>
-		</h2><!-- Ligne à compléter-->
+		<h1 th:text="'Erreur de saisie, réessayez'"></h1>
+		<a class="btn btn-danger" href="add">Retour</a>
 
 	</div>
 	<!-- /.container -->

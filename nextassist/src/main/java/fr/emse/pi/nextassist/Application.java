@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
@@ -19,8 +20,10 @@ import java.util.Arrays;
 @EnableJpaRepositories
 @EnableTransactionManagement
 public class Application {
+
 	public static final LocalDateTime DEBUT = LocalDateTime.of(2018,01,01,01,01);
 	public static final LocalDateTime FIN = LocalDateTime.of(2018,12,31,23,59);
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);

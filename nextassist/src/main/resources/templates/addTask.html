@@ -4,6 +4,7 @@
 <title>Spring Boot Thymeleaf Student Notes</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+
 <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
 
@@ -20,11 +21,18 @@
 
 	<div class="container">
 
-		<h1 th:text="'Liste des tâches avec leur deadline :'"></h1>
-		<h2 th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}">
-			<p  th:text="${task.name}" ></p>
-			<p  th:text="${task.deadline}" ></p>
-		</h2><!-- Ligne à compléter-->
+		<h1>Ajouter une tâche à effectuer :</h1>
+		<form action="#" th:action="@{/web/task/add}" th:object="${task}" method="post">
+			<p>Label : <input type="text" th:field="*{name}" /></p>
+			<p>Deadline : <input type="datetime-local" th:field="*{deadline}" /></p>
+			<!--<p>Durée : <input type="time" th:field="*{duration}" /></p>-->
+			<p>Date de départ : <input type="datetime-local" th:field="*{start_date}" /></p>
+			<p>Priorité : <input type="number" value="1" min="1" max="3" th:field="*{priority}" /></p>
+
+
+
+			<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+		</form>
 
 	</div>
 	<!-- /.container -->
