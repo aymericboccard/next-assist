@@ -20,12 +20,14 @@
 
 <div class="container">
 
-    <h1 th:text="'Liste des events à la date demandée :'"></h1>
-    <h2 class="eventList" th:each="event : ${events}" th:unless="${#lists.isEmpty(events)}">
-        <div class="eventName" th:text="${event.name}" ></div>
-        <div class="eventDate" th:text="${event.start_date}" ></div>
-        <div class="eventLocation" th:text="${event.location}" ></div>
-    </h2>
+    <h1 th:text="'De quel jour voullez-vous connaitre les évenements?'"></h1>
+    <form action="#" th:action="@{/web/daily}" th:objcet="${date}" method="post">
+
+        <p>Date à consulter : <input type="date" name="date" th:field="*{date}" /></p>
+
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+
 
 </div>
 <!-- /.container -->
