@@ -7,9 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -42,6 +40,24 @@ public class TaskController {
 
         LOG.info("Model for allTasks : {}", model);
         return "allTasks";
+    }
+
+    @PostMapping("/add")
+    public String addTask (@ModelAttribute Task task) {
+
+        LOG.info("Task submitted: {}", task);
+        taskRepository.save(task);
+
+        return "newTask";
+    }
+
+    @GetMapping("/add")
+    public String taskForm (Model model) {
+        Task task = new Task();
+        LOG.info("New task created: {}", task);
+        model.addAttribute("task", task);
+        LOG.info("New task submitted: {}", task);
+        return "addTask";
     }
 
 }

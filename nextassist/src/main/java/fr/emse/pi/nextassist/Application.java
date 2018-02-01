@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
@@ -20,7 +21,7 @@ import java.util.Arrays;
 @EnableTransactionManagement
 public class Application {
 	public static final LocalDateTime DEBUT = LocalDateTime.of(0,01,01,01,01,01,0);
-	public static final LocalDateTime FIN = LocalDateTime.of(1000,12,31,23,59,59,59);
+	public static final LocalDateTime FIN = LocalDateTime.of(1000,12,31,23,54,5);
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);

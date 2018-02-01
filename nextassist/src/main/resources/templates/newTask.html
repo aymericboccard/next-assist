@@ -20,11 +20,14 @@
 
 	<div class="container">
 
-		<h1 th:text="'Liste des tâches avec leur deadline :'"></h1>
-		<h2 th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}">
-			<p  th:text="${task.name}" ></p>
-			<p  th:text="${task.deadline}" ></p>
-		</h2><!-- Ligne à compléter-->
+		<h1 th:text="'Tâche correctement ajoutée :'"></h1>
+		<p th:text="'Label : ' + ${task.name}"></p>
+		<p th:text="'Deadline : ' + ${task.deadline}"></p>
+		<p th:text="'Date de début : ' + ${task.start_date}"></p>
+		<p th:text="'Durée : ' + ${task.duration}"></p>
+		<p th:text="'Priorité : ' + ${task.priority}"></p>
+
+		<a class="btn btn-primary" href="all">Retour</a>
 
 	</div>
 	<!-- /.container -->
