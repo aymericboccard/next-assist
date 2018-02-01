@@ -46,14 +46,30 @@ public class EventController {
 
     @PostMapping("/add")
     public String addEvents(@ModelAttribute Event event){
+        List<Event> events = eventRepository.findAll();
 
-        if ((event.name=="")||(event.start_date.isAfter(event.end_date))){
+        if ((event.name=="")||(event.start_date==null)||(event.start_date.isAfter(event.end_date))){
             return"failEvent";
         }
-        else {
-            eventRepository.save(event);
-            return "newEvent";
+        if(events!=null) {
+            for (Event event1 : events){
+                if (event1.end_date!=null){
+                    if (((event.start_date.isAfter(event1.start_date)) &&(event.start_date.isBefore(event1.end_date)))||
+                            ((event.end_date.isAfter(event1.start_date)) &&(event.end_date.isBefore(event1.end_date)))){
+                        return"plannedEvent";
+                    }
+                }
+                else if (event1.end_date==null){
+                    if(event.start_date==event1.start_date){
+                        return"plannedEvent";
+                    }
+
+                }
+            }
+
         }
+        eventRepository.save(event);
+        return "newEvent";
     }
 
     @GetMapping("/add")
