@@ -13,19 +13,23 @@
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Next-Assist</a>
+            <a class="navbar-brand" href="/web/today">Next-Assist</a>
+            <a class="navbar-brand" href="/web/event/all">Evenements</a>
+            <a class="navbar-brand" href="/web/task/all">Taches</a>
         </div>
     </div>
 </nav>
 
 <div class="container">
 
-    <h1 th:text="'Liste des events à la date demandée :'"></h1>
+    <h1 th:text="'Liste des evenements :'"></h1>
     <h2 class="eventList" th:each="event : ${events}" th:unless="${#lists.isEmpty(events)}">
         <div class="eventName" th:text="${event.name}" ></div>
         <div class="eventDate" th:text="${event.start_date}" ></div>
         <div class="eventLocation" th:text="${event.location}" ></div>
     </h2>
+
+    <a class="btn btn-primary" href="/web/event/add">Ajouter des Evenements</a>
 
 </div>
 <!-- /.container -->

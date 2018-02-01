@@ -13,7 +13,9 @@
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Next-Assist</a>
+            <a class="navbar-brand" href="/web/today">Next-Assist</a>
+            <a class="navbar-brand" href="/web/event/all">Evenements</a>
+            <a class="navbar-brand" href="/web/task/all">Taches</a>
         </div>
     </div>
 </nav>
@@ -31,7 +33,7 @@
     <h2 class="taskList" th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}">
         <div class="taskName" th:text="${task.name}" ></div>
         <div class="taskDeadline" th:text="${task.deadline}" ></div>
-    </h2><!-- Ligne à compléter-->
+    </h2>
 
 </div>
 <!-- /.container -->
