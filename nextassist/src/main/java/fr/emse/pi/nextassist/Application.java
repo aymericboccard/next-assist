@@ -19,8 +19,8 @@ import java.util.Arrays;
 @EnableJpaRepositories
 @EnableTransactionManagement
 public class Application {
-	public static final LocalDateTime DEBUT = LocalDateTime.of(2018,01,01,01,01,01,0);
-	public static final LocalDateTime FIN = LocalDateTime.of(2018,12,31,23,59,59,59);
+	public static final LocalDateTime DEBUT = LocalDateTime.of(2018,01,01,01,01);
+	public static final LocalDateTime FIN = LocalDateTime.of(2018,12,31,23,59);
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -33,7 +33,7 @@ public class Application {
 		return (String... args) -> {
 			String[] names = {"Creation", "Test1", "Test2"};
 			Arrays.stream(names)
-					.map(name -> new Event(name, DEBUT))
+					.map(name -> new Event(name, DEBUT,"Saint-Etienne"))
 					.forEach(eventRepository::save);
 			Arrays.stream(names)
 					.map(name -> new Task(name,FIN))

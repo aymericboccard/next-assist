@@ -46,13 +46,15 @@ public class EventController {
 
     @PostMapping("/add")
     public String addEvents(@ModelAttribute Event event){
-
-        return"newTask";
+        LOG.info("Event submitted: {}", event);
+        eventRepository.save(event);
+        return"newEvent";
     }
 
     @GetMapping("/add")
     public String eventForm(Model model){
-
+        Event event= new Event();
+        model.addAttribute("event",event);
         return"addEvent";
     }
 

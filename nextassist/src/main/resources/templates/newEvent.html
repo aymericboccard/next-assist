@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Thymeleaf Student Notes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Next-Assist</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1 th:text="'Evenement correctement ajoutée :'"></h1>
+    <p th:text="'Nom : ' + ${event.name}"></p>
+    <p th:text="'Date de début : ' + ${event.start_date}"></p>
+    <p th:text="'Date de fin : ' + ${event.end_date}"></p>
+    <p th:text="'Lieu : ' + ${event.location}"></p>
+
+    <a class="btn btn-primary" href="all">Retour</a>
+
+</div>
+<!-- /.container -->
+
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

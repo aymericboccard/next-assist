@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Thymeleaf Student Notes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Next-Assist</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1 th:text="'Ajouter un évenement'"></h1>
+    <form action="#" th:action="@{/web/event/add}" th:object="${event}" method="post">
+        <p>Nom : <input type="text" name="name" th:field="*{name}"/></p>
+        <p>Date de l'évenement : <input type="datetime-local" name="start_Date" th:field="*{start_date}"/></p>
+        <p>Date de fin de l'évenement : <input type="datetime-local" name="end_Date" th:field="*{end_date}"/></p>
+        <p>Lieu : <input type="text" name="location" th:field="*{location}"/></p>
+        <p>Déplacable : <input type="checkbox" value="true" name="movable" th:field="*{movable}"/></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+
+</div>
+<!-- /.container -->
+
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
