@@ -20,15 +20,9 @@
 
 <div class="container">
 
-    <h1 th:text="'Ajouter un évenement'"></h1>
-    <form action="#" th:action="@{/web/event/add}" th:object="${event}" method="post">
-        <p>Nom : <input type="text" name="name" th:field="*{name}"/></p>
-        <p>Date de l'évenement : <input type="datetime-local" name="start_Date" th:field="*{start_date}"/></p>
-        <p>Date de fin de l'évenement : <input type="datetime-local" name="end_Date" th:field="*{end_date}"/></p>
-        <p>Lieu : <input type="text" name="location" th:field="*{location}"/></p>
-        <p>Déplacable : <input type="checkbox" value="true" name="movable" th:field="*{movable}"/></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
+    <h1> Il est nécéssaire au minimum de spécifier un nom et une date de début pour créer un évenement.</h1>
+    <h1>La date de fin d'évenement doit être superieur à la date de début.</h1>
+    <a class="btn btn-primary" href="add">Retour</a>
 
 
 </div>

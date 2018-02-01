@@ -46,9 +46,14 @@ public class EventController {
 
     @PostMapping("/add")
     public String addEvents(@ModelAttribute Event event){
-        LOG.info("Event submitted: {}", event);
-        eventRepository.save(event);
-        return"newEvent";
+
+        if ((event.name=="")||(event.start_date.isAfter(event.end_date))){
+            return"failEvent";
+        }
+        else {
+            eventRepository.save(event);
+            return "newEvent";
+        }
     }
 
     @GetMapping("/add")
