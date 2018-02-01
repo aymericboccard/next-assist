@@ -55,11 +55,12 @@ public class EventController {
             for (Event event1 : events){
                 if (event1.end_date!=null){
                     if (((event.start_date.isAfter(event1.start_date)) &&(event.start_date.isBefore(event1.end_date)))||
-                            ((event.end_date.isAfter(event1.start_date)) &&(event.end_date.isBefore(event1.end_date)))){
+                            ((event.end_date.isAfter(event1.start_date)) &&(event.end_date.isBefore(event1.end_date)))||
+                            ((event.start_date.isBefore(event1.start_date))&&(event.end_date.isAfter(event1.end_date)))){
                         return"plannedEvent";
                     }
                 }
-                else if (event1.end_date==null){
+                else {
                     if(event.start_date==event1.start_date){
                         return"plannedEvent";
                     }
