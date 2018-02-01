@@ -20,12 +20,18 @@
 
 <div class="container">
 
-    <h1 th:text="'Liste des events à la date demandée :'"></h1>
+    <h1 th:text="'Liste des events du jour :'"></h1>
     <h2 class="eventList" th:each="event : ${events}" th:unless="${#lists.isEmpty(events)}">
         <div class="eventName" th:text="${event.name}" ></div>
         <div class="eventDate" th:text="${event.start_date}" ></div>
         <div class="eventLocation" th:text="${event.location}" ></div>
     </h2>
+
+    <h1 th:text="'Liste des tâches à finir  :'"></h1>
+    <h2 class="taskList" th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}">
+        <div class="taskName" th:text="${task.name}" ></div>
+        <div class="taskDeadline" th:text="${task.deadline}" ></div>
+    </h2><!-- Ligne à compléter-->
 
 </div>
 <!-- /.container -->

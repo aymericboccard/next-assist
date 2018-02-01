@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 public class TaskDeadlineDTO {
-    private final String name;
-    private final String deadline;
+    public final String name;
+    public final String deadline;
 
     public TaskDeadlineDTO(Task task) {
         name = task.getName();

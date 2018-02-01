@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/web/event")
 public class EventController {
-    private static Logger LOG  = LoggerFactory.getLogger(TaskController.class);
+    private static Logger LOG  = LoggerFactory.getLogger(EventController.class);
 
     @Autowired
     private EventRepository eventRepository;
