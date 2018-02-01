@@ -45,18 +45,24 @@ public class TaskController {
     @PostMapping("/add")
     public String addTask (@ModelAttribute Task task) {
 
-        LOG.info("Task submitted: {}", task);
-        taskRepository.save(task);
+        if(task.getDeadline() != null && task.getName() != "" && task.getStart_date() == null ){
+            if(task.deadline.isAfter(task.start_date.plus(task.duration))) {
+                taskRepository.save(task);
+                return "correctTask";
+            } else {
+                return "wrongTask";
+            }
+        } else {
+            return "wrongTask";
+        }
 
-        return "newTask";
+
     }
 
     @GetMapping("/add")
     public String taskForm (Model model) {
         Task task = new Task();
-        LOG.info("New task created: {}", task);
         model.addAttribute("task", task);
-        LOG.info("New task submitted: {}", task);
         return "addTask";
     }
 

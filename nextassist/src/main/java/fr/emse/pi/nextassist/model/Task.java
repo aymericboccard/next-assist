@@ -1,6 +1,7 @@
 package fr.emse.pi.nextassist.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,6 +16,7 @@ import java.time.LocalTime;
 
 @Entity
 @Data
+@AllArgsConstructor
 public class Task {
     @Id @GeneratedValue
     public Long id;
@@ -24,7 +26,7 @@ public class Task {
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     public LocalDateTime start_date;
 
-    @DateTimeFormat(pattern = "HH:mm")
+    @DateTimeFormat(pattern = "'P'DD'D''T'HH'H'mm'M")
     public Duration duration;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
@@ -42,13 +44,6 @@ public class Task {
         this.priority = 2;
     }
 
-    public Task(String name,LocalDateTime start_date, LocalDateTime deadline, Duration duration, int priority){
-        this.deadline= deadline;
-        this.name= name;
-        this.priority = priority;
-        this.start_date = start_date;
-        this.duration = duration;
-    }
 
     public Task() {
         this.start_date = LocalDateTime.now();
