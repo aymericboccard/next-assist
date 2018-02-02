@@ -47,6 +47,15 @@ public class Task {
         this.complete = 0;
     }
 
+    public Task(String name, LocalDateTime deadline,int priority){
+        this.deadline= deadline;
+        this.name= name;
+        this.start_date = LocalDateTime.now();
+        this.duration = Duration.ofHours(1);
+        this.priority = priority;
+        this.complete = 0;
+    }
+
 
     public Task() {
         this.start_date = LocalDateTime.now();
