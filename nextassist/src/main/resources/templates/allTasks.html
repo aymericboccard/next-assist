@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
-<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+<!--<link rel="stylesheet" type="text/css" href="../css/main.css" th:href="@{/css/main.css}" />-->
 
 </head>
 <body>
@@ -22,13 +22,26 @@
 
 	<div class="container">
 
-		<h1 th:text="'Liste des tâches avec leur deadline :'"></h1>
-		<h2 th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}">
-			<p  th:text="${task.name}" ></p>
-			<p  th:text="${task.deadline}" ></p>
-		</h2>
 
-		<a class="btn btn-primary" href="/web/task/add">Ajouter des Taches</a>
+		<h1 th:text="'Tâches à effectuer :'"></h1>
+		<div class="row" th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}" th:if="${task.complete == 0}">
+			<div th:switch="${task.priority}">
+				<a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(254,27,0); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="1"></a>
+
+				<a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(255,127,0); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="2"></a>
+
+				<a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(58,137,35); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="3"></a>
+			</div>
+			<div th:switch="${task.priority}">
+				<p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="1"></p>
+
+				<p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="2"></p>
+
+				<p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="3"></p>
+			</div>
+
+		</div>
+
 
 	</div>
 	<!-- /.container -->
