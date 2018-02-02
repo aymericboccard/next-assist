@@ -26,12 +26,12 @@ public class TaskController {
     @GetMapping("/all")
     public String allTasks(Model model) {
         List<Task> tasks = taskRepository.findAll();
-        List<TaskDeadlineDTO> taskDeadlineDTOS;
+        List<TaskDTO> taskDeadlineDTOS;
 
         if(tasks!=null) {
             taskDeadlineDTOS = tasks.stream()
-                    .map(task -> new TaskDeadlineDTO(task))
-                    .sorted(Comparator.comparing(TaskDeadlineDTO::getDeadline))
+                    .map(task -> new TaskDTO(task))
+                    .sorted(Comparator.comparing(TaskDTO::getDeadline))
                     .collect(Collectors.toList());
         } else {
             taskDeadlineDTOS = Collections.emptyList();

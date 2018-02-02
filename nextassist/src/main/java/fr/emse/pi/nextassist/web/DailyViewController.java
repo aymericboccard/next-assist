@@ -53,8 +53,8 @@ public class DailyViewController {
         if(tasks!=null) {
             taskDeadlineDTOS = tasks.stream()
                     .filter(task ->today.equals(task.deadline.toLocalDate()))
-                    .map(task -> new TaskDeadlineDTO(task))
-                    .sorted(Comparator.comparing(TaskDeadlineDTO::getDeadline))
+                    .map(task -> new TaskDTO(task))
+                    .sorted(Comparator.comparing(TaskDTO::getDeadline))
                     .collect(Collectors.toList());
         } else {
             taskDeadlineDTOS = Collections.emptyList();
