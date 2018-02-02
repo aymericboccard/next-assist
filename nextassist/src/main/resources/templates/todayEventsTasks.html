@@ -22,7 +22,7 @@
 
 <div class="container">
 
-    <h1 th:text="'Liste des events du jour :'"></h1>
+    <h1 th:text="'Liste des événements du jour :'"></h1>
     <div class="row" th:each="event : ${events}" th:unless="${#lists.isEmpty(events)}">
         <div>
             <a class="col-sm-9" th:text="${event.name}" style="margin: 0; padding: 10px; color: rgb(49,140,231); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:href="'/web/event/'+${event.id}"></a>
