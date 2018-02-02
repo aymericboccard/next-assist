@@ -22,7 +22,7 @@
 
 <div class="container">
 
-    <h1 th:text="'Evenement correctement ajoutée :'"></h1>
+    <p  style="font-size: 1.25em;" class="alert alert-success" th:text="'Événement correctement ajoutée'"></p>
     <p th:text="'Nom : ' + ${event.name}"></p>
     <p th:text="'Date de début : ' + ${event.start_date}"></p>
     <p th:text="'Date de fin : ' + ${event.end_date}"></p>

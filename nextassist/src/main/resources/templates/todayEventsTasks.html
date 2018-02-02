@@ -22,21 +22,25 @@
 
 <div class="container">
 
-    <h1 th:text="'Liste des Evenements du jour :'"></h1>
-    <h2 class="eventList" th:each="event : ${events}" th:unless="${#lists.isEmpty(events)}">
-        <div class="eventName" th:text="${event.name}" ></div>
-        <div class="eventDate" th:text="${event.start_date}" ></div>
-        <div class="eventLocation" th:text="${event.location}" ></div>
-    </h2>
+    <h1 th:text="'Liste des events du jour :'"></h1>
+    <div class="row" th:each="event : ${events}" th:unless="${#lists.isEmpty(events)}">
+        <div>
+            <a class="col-sm-9" th:text="${event.name}" style="margin: 0; padding: 10px; color: rgb(49,140,231); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:href="'/web/event/'+${event.id}"></a>
+        </div>
+        <div>
+            <p class="col-sm-3" th:text="${event.start_date}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;"></p>
+        </div>
+    </div>
+
 
     <h1 th:text="'Liste des tâches à finir  :'"></h1>
     <div class="row" th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}" th:if="${task.complete == 0}">
         <div th:switch="${task.priority}">
-            <a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(254,27,0); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="1"></a>
+            <a class="col-sm-9"  th:text="${task.name}" th:href="'/web/task/'+${task.id}" style="margin: 0; padding: 10px; color: rgb(254,27,0); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="1"></a>
 
-            <a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(255,127,0); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="2"></a>
+            <a class="col-sm-9"  th:text="${task.name}" th:href="'/web/task/'+${task.id}" style="margin: 0; padding: 10px; color: rgb(255,127,0); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="2"></a>
 
-            <a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(58,137,35); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="3"></a>
+            <a class="col-sm-9"  th:text="${task.name}" th:href="'/web/task/'+${task.id}" style="margin: 0; padding: 10px; color: rgb(58,137,35); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="3"></a>
         </div>
         <div th:switch="${task.priority}">
             <p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="1"></p>
