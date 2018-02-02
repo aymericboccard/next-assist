@@ -21,8 +21,13 @@ import java.util.Arrays;
 @EnableTransactionManagement
 public class Application {
 
-	public static final LocalDateTime DEBUT = LocalDateTime.of(2018,01,01,01,01);
-	public static final LocalDateTime FIN = LocalDateTime.of(2018,12,31,23,59);
+	public static final LocalDateTime DEBUT = LocalDateTime.of(2018,02,02,13,30);
+	public static final LocalDateTime FIN = LocalDateTime.of(2018,02,02,16,30);
+	public static final LocalDateTime DEBUT1 = LocalDateTime.of(2018,02,02,17,00);
+	public static final LocalDateTime FIN1 = LocalDateTime.of(2018,02,05,8,00);
+	public static final LocalDateTime DEBUT2 = LocalDateTime.of(2018,02,10,20,00);
+	public static final LocalDateTime FIN2 = LocalDateTime.of(2018,02,11,4,00);
+
 
 
 	public static void main(String[] args) {
@@ -34,13 +39,22 @@ public class Application {
 	//@Profile("test")
 	public CommandLineRunner initDataTest(EventRepository eventRepository, TaskRepository taskRepository) {
 		return (String... args) -> {
-			String[] names = {"Creation", "Test1", "Test2"};
-			Arrays.stream(names)
-					.map(name -> new Event(name, DEBUT,FIN,"Saint-Etienne"))
-					.forEach(eventRepository::save);
-			Arrays.stream(names)
-					.map(name -> new Task(name,FIN))
-					.forEach(taskRepository::save);
+			Event event1 = new Event("Jacademie", DEBUT,FIN,"Saint-Etienne");
+			Event event2 = new Event("Week-end", DEBUT1,FIN1,"Saint-Etienne");
+			Event event3 = new Event("Gala des Mines", DEBUT2,FIN2,"Saint-Etienne");
+
+			eventRepository.save(event1);
+			eventRepository.save(event2);
+			eventRepository.save(event3);
+
+
+			Task task1 = new Task("QCM",FIN,1);
+			Task task2 = new Task( "Devoir",DEBUT,2);
+			Task task3 = new Task("Acheter une tenue pour le Gala",DEBUT2,3);
+
+			taskRepository.save(task1);
+			taskRepository.save(task2);
+			taskRepository.save(task3);
 		};
 	}
 }
