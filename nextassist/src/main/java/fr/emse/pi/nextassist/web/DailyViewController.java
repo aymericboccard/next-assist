@@ -37,7 +37,7 @@ public class DailyViewController {
         List<EventDateDTO> eventDateDTOS;
 
         List<Task> tasks = taskRepository.findAll();
-        List<TaskDeadlineDTO>  taskDeadlineDTOS;
+        List<TaskDTO>  taskDTOS;
 
         if(events!=null) {
             eventDateDTOS = events.stream()
@@ -51,15 +51,15 @@ public class DailyViewController {
         model.addAttribute("events", eventDateDTOS);
 
         if(tasks!=null) {
-            taskDeadlineDTOS = tasks.stream()
+            taskDTOS = tasks.stream()
                     .filter(task ->today.equals(task.deadline.toLocalDate()))
                     .map(task -> new TaskDTO(task))
                     .sorted(Comparator.comparing(TaskDTO::getDeadline))
                     .collect(Collectors.toList());
         } else {
-            taskDeadlineDTOS = Collections.emptyList();
+            taskDTOS = Collections.emptyList();
         }
-        model.addAttribute("tasks", taskDeadlineDTOS);
+        model.addAttribute("tasks", taskDTOS);
 
         return"todayEventsTasks";
     }
