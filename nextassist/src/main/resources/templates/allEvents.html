@@ -22,12 +22,16 @@
 
 <div class="container">
 
-    <h1 th:text="'Liste des evenements :'"></h1>
-    <h2 class="eventList" th:each="event : ${events}" th:unless="${#lists.isEmpty(events)}">
-        <div class="eventName" th:text="${event.name}" ></div>
-        <div class="eventDate" th:text="${event.start_date}" ></div>
-        <div class="eventLocation" th:text="${event.location}" ></div>
-    </h2>
+    <h1 th:text="'Evenements :'"></h1>
+    <div class="row" th:each="event : ${events}" th:unless="${#lists.isEmpty(events)}">
+        <div>
+        <a class="col-sm-9" th:text="${event.name}" style="margin: 0; padding: 10px; color: rgb(49,140,231); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:href="${event.id}"></a>
+        </div>
+        <div>
+            <p class="col-sm-3" th:text="${event.start_date}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;"></p>
+        </div>
+    </div>
+
 
     <a class="btn btn-primary" href="/web/event/add">Ajouter des Evenements</a>
 

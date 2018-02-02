@@ -27,10 +27,11 @@ public class Event {
     public boolean movable;
     public String location;
 
-    public Event(String name,LocalDateTime start_date,String location){
+    public Event(String name,LocalDateTime start_date,LocalDateTime end_date,String location){
         this.name = name;
         this.start_date= start_date;
         this.location = location;
+        this.end_date = end_date;
     }
 
 }
