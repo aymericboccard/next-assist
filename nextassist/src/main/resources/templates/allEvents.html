@@ -14,7 +14,7 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="/web/today">Next-Assist</a>
-            <a class="navbar-brand" href="/web/event/all">Événéments</a>
+            <a class="navbar-brand" href="/web/event/all">Événements</a>
             <a class="navbar-brand" href="/web/task/all">Tâches</a>
         </div>
     </div>
@@ -22,7 +22,7 @@
 
 <div class="container">
 
-    <h1 th:text="'Evenements :'"></h1>
+    <h1 th:text="'Événements :'"></h1>
     <div class="row" th:each="event : ${events}" th:unless="${#lists.isEmpty(events)}">
         <div>
         <a class="col-sm-9" th:text="${event.name}" style="margin: 0; padding: 10px; color: rgb(49,140,231); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:href="${event.id}"></a>

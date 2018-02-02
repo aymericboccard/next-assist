@@ -14,7 +14,7 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="/web/today">Next-Assist</a>
-            <a class="navbar-brand" href="/web/event/all">Événéments</a>
+            <a class="navbar-brand" href="/web/event/all">Événements</a>
             <a class="navbar-brand" href="/web/task/all">Tâches</a>
         </div>
     </div>
@@ -22,7 +22,7 @@
 
 <div class="container">
 
-    <h1 th:text="'Ajouter un évenement'"></h1>
+    <h1 th:text="'Ajouter un événément'"></h1>
     <form action="#" th:action="@{/web/event/add}" th:object="${event}" method="post">
         <p>Nom : <input type="text" name="name" th:field="*{name}"/></p>
         <p>Date de l'évenement : <input type="datetime-local" name="start_Date" th:field="*{start_date}"/></p>
