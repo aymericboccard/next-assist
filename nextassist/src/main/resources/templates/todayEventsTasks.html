@@ -32,6 +32,7 @@
         </div>
     </div>
 
+
     <h1 th:text="'Liste des tâches à finir  :'"></h1>
     <div class="row" th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}" th:if="${task.complete == 0}">
         <div th:switch="${task.priority}">
