@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -48,7 +49,7 @@ public class EventController {
     public String addEvents(@ModelAttribute Event event){
         List<Event> events = eventRepository.findAll();
 
-        if ((event.name=="")||(event.start_date==null)||(event.start_date.isAfter(event.end_date))){
+        if ((event.name=="")||(event.start_date==null)||(event.start_date.isAfter(event.end_date))||(event.start_date.isBefore(LocalDateTime.now()))){
             return"failEvent";
         }
         if(events!=null) {

@@ -4,6 +4,7 @@
     <title>Spring Boot Thymeleaf Student Notes</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
 
@@ -22,11 +23,12 @@
 
 <div class="container">
 
-    <h1> Il est nécéssaire au minimum de spécifier un nom et une date de début pour créer un évenement.</h1>
-    <h1>La date de fin d'évenement doit être superieur à la date de début.</h1>
-    <h1>Un évenement ne peut être créé aprés sa date de départ.</h1>
-    <a class="btn btn-danger" href="add">Retour</a>
+    <h1>De quel jour voullez vous connaitre les activitées ? </h1>
+    <form action="#" th:action="@{/web/day}" th:object="${dayView}" method="post">
+        <p>Date : <input type="date" th:field="*{day}" /></p>
 
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
 
 </div>
 <!-- /.container -->
