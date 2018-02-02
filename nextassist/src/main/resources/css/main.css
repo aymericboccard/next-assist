@@ -6,8 +6,6 @@ h2{
 	color:#FF0000;
 }
 
-
-
 .taskName {
 	color: green;
 }
@@ -19,4 +17,5 @@ h2{
 .taskName, .taskDeadline {
     display: inline-block;
     font-size: 0.75em;
+    color: red;
 }

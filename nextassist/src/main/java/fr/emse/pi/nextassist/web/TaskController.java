@@ -26,12 +26,12 @@ public class TaskController {
     @GetMapping("/all")
     public String allTasks(Model model) {
         List<Task> tasks = taskRepository.findAll();
-        List<TaskDeadlineDTO> taskDeadlineDTOS;
+        List<TaskDTO> taskDeadlineDTOS;
 
         if(tasks!=null) {
             taskDeadlineDTOS = tasks.stream()
-                    .map(task -> new TaskDeadlineDTO(task))
-                    .sorted(Comparator.comparing(TaskDeadlineDTO::getDeadline))
+                    .map(task -> new TaskDTO(task))
+                    .sorted(Comparator.comparing(TaskDTO::getDeadline))
                     .collect(Collectors.toList());
         } else {
             taskDeadlineDTOS = Collections.emptyList();
@@ -44,8 +44,10 @@ public class TaskController {
 
     @PostMapping("/add")
     public String addTask (@ModelAttribute Task task) {
+        LOG.info("task submitted : {}", task);
+        LOG.info("date plus : {}", task.start_date.plus(task.duration));
 
-        if(task.getDeadline() != null && task.getName() != "" && task.getStart_date() == null ){
+        if(task.getDeadline() != null && task.getName() != "" && task.getStart_date() != null ){
             if(task.deadline.isAfter(task.start_date.plus(task.duration))) {
                 taskRepository.save(task);
                 return "correctTask";

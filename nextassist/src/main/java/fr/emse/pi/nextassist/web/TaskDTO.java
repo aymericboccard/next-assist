@@ -7,13 +7,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-public class TaskDeadlineDTO {
+public class TaskDTO {
     private final String name;
     private final String deadline;
+    private final int complete;
 
-    public TaskDeadlineDTO(Task task) {
+    public TaskDTO(Task task) {
         name = task.getName();
         deadline = task.getDeadline().toString();
+        complete = task.getComplete();
     }
 
 }

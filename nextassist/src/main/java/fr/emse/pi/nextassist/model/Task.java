@@ -35,6 +35,8 @@ public class Task {
 
     public int priority;
 
+    public int complete;
+
 
     public Task(String name, LocalDateTime deadline){
         this.deadline= deadline;
@@ -42,6 +44,7 @@ public class Task {
         this.start_date = LocalDateTime.now();
         this.duration = Duration.ofHours(1);
         this.priority = 2;
+        this.complete = 0;
     }
 
 
@@ -49,5 +52,6 @@ public class Task {
         this.start_date = LocalDateTime.now();
         this.duration = Duration.ofHours(1);
         this.priority = 2;
+        this.complete = 0;
     }
 }
