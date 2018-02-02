@@ -26,17 +26,17 @@ public class TaskController {
     @GetMapping("/all")
     public String allTasks(Model model) {
         List<Task> tasks = taskRepository.findAll();
-        List<TaskDTO> taskDeadlineDTOS;
+        List<TaskDTO> taskDTOS;
 
         if(tasks!=null) {
-            taskDeadlineDTOS = tasks.stream()
+            taskDTOS = tasks.stream()
                     .map(task -> new TaskDTO(task))
                     .sorted(Comparator.comparing(TaskDTO::getDeadline))
                     .collect(Collectors.toList());
         } else {
-            taskDeadlineDTOS = Collections.emptyList();
+            taskDTOS = Collections.emptyList();
         }
-        model.addAttribute("tasks", taskDeadlineDTOS);
+        model.addAttribute("tasks", taskDTOS);
 
         LOG.info("Model for allTasks : {}", model);
         return "allTasks";
