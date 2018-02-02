@@ -68,4 +68,12 @@ public class TaskController {
         return "addTask";
     }
 
+    @GetMapping("/{id}")
+    public String taskDescrption (@PathVariable("id") Long id, Model model) {
+        Task task = taskRepository.findById(id);
+        TaskDTO taskDTO = new TaskDTO(task);
+        model.addAttribute("task", taskDTO);
+        return "taskDetails";
+    }
+
 }

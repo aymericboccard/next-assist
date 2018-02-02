@@ -20,22 +20,23 @@
 
 	<div class="container">
 
-		<h1 th:text="'Tâches à effectuer :'"></h1>
-		<div class="row" th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}" th:if="${task.complete == 0}">
+		<h1 th:text="${task.name}"></h1>
+		<div class="row">
+			<p class="col-sm-3"  th:text="'Deadline'" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;"></p>
+			<p class="col-sm-3"  th:text="'Durée'" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;"></p>
+			<p class="col-sm-3"  th:text="'Date de début'" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;"></p>
+			<p class="col-sm-3"  th:text="'Complétée'" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;"></p>
+		</div>
+
+		<div class="row">
 			<div th:switch="${task.priority}">
-				<p class="col-sm-9"  th:text="${task.name}" style="margin: 0; padding: 10px; color: rgb(254,27,0); font-weight :bold; font-size: 1.25em;" th:case="1"></p>
-
-				<p class="col-sm-9"  th:text="${task.name}" style="margin: 0; padding: 10px; color: rgb(255,127,0); font-weight :bold; font-size: 1.25em;" th:case="2"></p>
-
-				<p class="col-sm-9"  th:text="${task.name}" style="margin: 0; padding: 10px; color: rgb(58,137,35); font-weight :bold; font-size: 1.25em;" th:case="3"></p>
+				<p class="col-sm-3"  th:text="${task.deadline}" style="margin: 0; padding: 10px; color: rgb(254,27,0); font-weight :bold; font-size: 1em;" th:case="1"></p>
+				<p class="col-sm-3"  th:text="${task.deadline}" style="margin: 0; padding: 10px; color: rgb(255,127,0); font-weight :bold; font-size: 1em;" th:case="2"></p>
+				<p class="col-sm-3"  th:text="${task.deadline}" style="margin: 0; padding: 10px; color: rgb(58,137,35); font-weight :bold; font-size: 1em;" th:case="3"></p>
 			</div>
-			<div th:switch="${task.priority}">
-				<p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="1"></p>
-
-				<p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="2"></p>
-
-				<p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="3"></p>
-			</div>
+			<p class="col-sm-3"  th:text="${task.duration}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1em;"></p>
+			<p class="col-sm-3"  th:text="${task.start_date}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1em;"></p>
+			<p class="col-sm-3"  th:text="${task.complete}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1em;"></p>
 		</div>
 
 	</div>

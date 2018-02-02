@@ -12,5 +12,5 @@ import java.util.List;
 public interface TaskRepository extends JpaRepository<Task, Long>{
     List<Task> findByName(@Param("name") String name);
     List<Task> findByDeadline(@Param("deadline") String deadline);
-    //List<LocalDateTime> findDistinctDeadline();
+    Task findById(@Param("id") Long id);
 }

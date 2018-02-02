@@ -22,8 +22,21 @@
 
 		<h1 th:text="'Tâches à effectuer :'"></h1>
 		<div class="row" th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}" th:if="${task.complete == 0}">
-			<p class="col-sm-5"  th:text="${task.name}" style="border: 1px solid #aaa"></p>
-			<p class="col-sm-7" th:text="${task.deadline}" style="border: 1px solid #aaa"></p>
+			<div th:switch="${task.priority}">
+				<a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(254,27,0); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="1"></a>
+
+				<a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(255,127,0); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="2"></a>
+
+				<a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(58,137,35); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="3"></a>
+			</div>
+			<div th:switch="${task.priority}">
+				<p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="1"></p>
+
+				<p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="2"></p>
+
+				<p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="3"></p>
+			</div>
+
 		</div>
 
 	</div>
