@@ -14,8 +14,8 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="/web/today">Next-Assist</a>
-            <a class="navbar-brand" href="/web/event/all">Evenements</a>
-            <a class="navbar-brand" href="/web/task/all">Taches</a>
+            <a class="navbar-brand" href="/web/event/all">Événéments</a>
+            <a class="navbar-brand" href="/web/task/all">Tâches</a>
         </div>
     </div>
 </nav>
@@ -30,10 +30,23 @@
     </h2>
 
     <h1 th:text="'Liste des tâches à finir  :'"></h1>
-    <h2 class="taskList" th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}">
-        <div class="taskName" th:text="${task.name}" ></div>
-        <div class="taskDeadline" th:text="${task.deadline}" ></div>
-    </h2>
+    <div class="row" th:each="task : ${tasks}" th:unless="${#lists.isEmpty(tasks)}" th:if="${task.complete == 0}">
+        <div th:switch="${task.priority}">
+            <a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(254,27,0); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="1"></a>
+
+            <a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(255,127,0); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="2"></a>
+
+            <a class="col-sm-9"  th:text="${task.name}" th:href="${task.id}" style="margin: 0; padding: 10px; color: rgb(58,137,35); font-weight :bold; font-size: 1.25em; text-decoration: none;" th:case="3"></a>
+        </div>
+        <div th:switch="${task.priority}">
+            <p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="1"></p>
+
+            <p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="2"></p>
+
+            <p class="col-sm-3" th:text="${task.deadline}" style="margin: 0; padding: 10px; font-weight :bold; font-size: 1.25em;" th:case="3"></p>
+        </div>
+
+    </div>
 
 </div>
 <!-- /.container -->

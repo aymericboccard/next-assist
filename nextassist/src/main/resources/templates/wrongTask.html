@@ -14,16 +14,16 @@
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/web/today">Next-Assist</a>
-				<a class="navbar-brand" href="/web/event/all">Evenements</a>
-				<a class="navbar-brand" href="/web/task/all">Taches</a>
+				<a class="navbar-brand" href="/web/event/all">Événéments</a>
+				<a class="navbar-brand" href="/web/task/all">Tâches</a>
 			</div>
 		</div>
 	</nav>
 
 	<div class="container">
 
-		<h1 th:text="'Erreur de saisie, réessayez'"></h1>
-		<a class="btn btn-danger" href="add">Retour</a>
+		<h1 class="alert alert-danger" th:text="'Erreur de saisie'"></h1>
+		<a class="btn btn-primary" href="/web/task/add">Retour</a>
 
 	</div>
 	<!-- /.container -->
